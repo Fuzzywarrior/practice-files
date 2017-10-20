@@ -1,4 +1,4 @@
-script.js/*
+/*
 var name = 'John';
 var lastName = 'Smith';
 var age = 26;
