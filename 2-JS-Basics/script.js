@@ -76,6 +76,7 @@ if (23 == '23'){
 ////////////////////////////////////
 // Lecture: boolean logic and switch
 
+/*
 var age = 20;
 
 if (age < 20) {
@@ -103,4 +104,35 @@ case 'cop':
 default:
     console.log('John does something else.');
 }
+*/
 
+//////////////////////////////////////
+// CODING CHALLENGE 1
+
+var playerOneHeight = 198;
+var playerTwoHeight = 170;
+var playerThreeHeight = 200;
+var playerOneAge = 20;
+var playerTwoAge = 30;
+var playerThreeAge = 27;
+
+function scoreCalc(height, age) {
+    "use strict";
+    var score = height + (age * 5);
+    return score;
+}
+
+var playerOneScore = scoreCalc(playerOneHeight, playerOneAge);
+var playerTwoScore = scoreCalc(playerTwoHeight, playerTwoAge);
+var playerThreeScore = scoreCalc(playerThreeHeight, playerThreeAge);
+
+if (playerOneScore > playerTwoScore && playerOneScore > playerThreeScore) {
+    console.log('Player one wins!');
+} else if (playerTwoScore > playerOneScore && playerTwoScore > playerThreeScore) {
+    console.log('Player two wins!');
+} else {
+    console.log('Player Three Wins!');
+}
+console.log(playerOneScore);
+console.log(playerTwoScore);
+console.log(playerThreeScore);
