@@ -130,9 +130,12 @@ if (playerOneScore > playerTwoScore && playerOneScore > playerThreeScore) {
     console.log('Player one wins!');
 } else if (playerTwoScore > playerOneScore && playerTwoScore > playerThreeScore) {
     console.log('Player two wins!');
-} else {
+} else if (playerThreeScore > playerOneScore && playerThreeScore > playerTwoScore) {
     console.log('Player Three Wins!');
+} else {
+    console.log('We have a draw! Everyone wins!');
 }
+
 console.log(playerOneScore);
 console.log(playerTwoScore);
 console.log(playerThreeScore);
