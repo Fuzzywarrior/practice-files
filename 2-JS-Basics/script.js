@@ -109,6 +109,7 @@ default:
 //////////////////////////////////////
 // CODING CHALLENGE 1
 
+/*
 var playerOneHeight = 198;
 var playerTwoHeight = 170;
 var playerThreeHeight = 200;
@@ -139,3 +140,53 @@ if (playerOneScore > playerTwoScore && playerOneScore > playerThreeScore) {
 console.log(playerOneScore);
 console.log(playerTwoScore);
 console.log(playerThreeScore);
+*/
+
+//
+// ─── LECTURE: FUNCTIONS ──────────────────────────────────────────────────────────
+//
+/*
+function calculateAge(yearOfBirth) {
+    "Use Strict:";
+    var age = 2017 - yearOfBirth;
+    return age;
+}
+
+function yearsUntilRetirement(name, year) {
+    "Use Strict:";
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+
+    if (retirement >= 0){
+        console.log(name + ' retires in ' + retirement + ' years.');
+    } else {
+        console.log(name + ' is already retired');
+    }
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1969);
+var ageMary = calculateAge(1948);
+
+console.log(ageJohn, ageMike, ageMary);
+
+yearsUntilRetirement('John', 1990);
+yearsUntilRetirement('Mike', 1969);
+yearsUntilRetirement('Mary', 1948);
+*/
+
+//
+// ─── LECTURE STATEMENTS AND EXPRESSIONS ─────────────────────────────────────────
+//
+/*
+//Expressions
+3 + 4;
+var x = 3;
+
+//statements
+if (x === 5) {
+    // do something
+}
+*/
+
+
