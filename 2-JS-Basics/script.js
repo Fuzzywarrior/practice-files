@@ -189,7 +189,10 @@ if (x === 5) {
 }
 */
 
-
+//
+// ─── LECTURE ARRAYS ─────────────────────────────────────────────────────────────
+//
+/*
 var names = ['John', 'Jane', 'Mark'];
 var years = [1990, 1969, 1948];
 
@@ -199,7 +202,7 @@ names[1] = 'Ben';
 
 console.log(names[0], names[1], names[2]);
 
-var john = ['John', 'Smith', 1990, 'Cop', false];
+var john = ['John', 'Smith', 1990, 'Teacher', false];
 
 
 john.push('Blue');
@@ -215,3 +218,36 @@ console.log(lastName);
 if (john.indexOf('Teacher') === -1) {
     console.log('John is not a teacher.');
 }
+*/
+
+//
+// ─── LECTURE OBJECTS ────────────────────────────────────────────────────────────
+//
+
+var john = {
+    name: 'John',
+    lastName: 'Smith',
+    yearOfBirth: 1990,
+    job: 'teacher',
+    isMarried: false
+};
+
+console.log(john.lastName);
+console.log(john['job']);
+
+var xyz = 'job';
+
+console.log(john[xyz]);
+
+john.lastName = 'Miller';
+john['job'] = 'programmer';
+
+console.log(john);
+
+var jane = Object.create(null);
+jane.name = 'Jane';
+jane.lastName = 'Smith';
+jane.yearOfBirth = 1969;
+jane.isMarried = true;
+
+console.log(jane);
