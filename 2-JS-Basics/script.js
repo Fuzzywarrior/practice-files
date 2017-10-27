@@ -190,3 +190,28 @@ if (x === 5) {
 */
 
 
+var names = ['John', 'Jane', 'Mark'];
+var years = [1990, 1969, 1948];
+
+console.log(names[0], names[1], names[2]);
+
+names[1] = 'Ben';
+
+console.log(names[0], names[1], names[2]);
+
+var john = ['John', 'Smith', 1990, 'Cop', false];
+
+
+john.push('Blue');
+john.unshift('Mr.');
+john.pop();
+john.shift();
+
+console.log(john);
+
+var lastName = john.indexOf('Smith');
+console.log(lastName);
+
+if (john.indexOf('Teacher') === -1) {
+    console.log('John is not a teacher.');
+}
