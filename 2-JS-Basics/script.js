@@ -303,9 +303,31 @@ console.log(john.fullName(), john.age);
 //    console.log(i);
 // }
 
-
+// For loops
 var names = ['John', 'Jane', 'Marry', 'Mark', 'Bob'];
 
-for (i = names.length -1 ; i >= 0; i--) {
+// for (i = names.length -1 ; i >= 0; i--) {
+//    console.log(names[i]);
+//}
+
+// While Loops
+var i = 0;
+while (i < names.length) {
     console.log(names[i]);
+    i++;
+}
+
+for (i = 1; i < 6; i++){
+    console.log(i);
+
+    if (i === 3) {
+        break;
+    }
+}
+
+for (i = 1; i < 6; i++){
+    if (i === 3) {
+        continue;
+    }
+    console.log(i);
 }
