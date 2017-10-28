@@ -350,3 +350,20 @@ Example output: [true, false, true]
 
 Hint: you can use a loop not only to read from an array, like y[i], but also to set values in an array, like y[i] = ... You can also use the specific array methods.
 */
+
+
+var yearOfBirth = [1928, 1969, 1978, 1999, 2001, 1970, 1965];
+var emptyYears = [];
+
+for (i = 0; i < yearOfBirth.length; i++) {
+    emptyYears.push(yearOfBirth[i]);
+}
+
+for (i = 0; i < yearOfBirth.length; i++) {
+    if ((2017 - yearOfBirth[i]) > 18) {
+        console.log('Is of full age ', 2017 - yearOfBirth[i]);
+    } else {
+        console.log('Is not of full age ', 2017 - yearOfBirth[i]);
+    }
+}
+console.log(emptyYears);
