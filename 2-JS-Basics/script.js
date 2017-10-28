@@ -273,8 +273,9 @@ var john = {
 
 
 // 2.0
+/*
 var john = {
-    age = this.calculateAge();
+    //age: this.calculateAge(),
     name: 'John',
     lastName: 'Smith',
     yearOfBirth: 1990,
@@ -284,7 +285,17 @@ var john = {
     calculateAge: function () {
         "Use Strict:";
         this.age = 2016 - this.yearOfBirth;
+    },
+    fullName: function () {
+        return this.name + ' ' + this.lastName;
     }
 };
+john.calculateAge();
 
-console.log(john);
+console.log(john.fullName(), john.age);
+*/
+
+//
+// ─── LECTURE LOOPS ──────────────────────────────────────────────────────────────
+//
+
