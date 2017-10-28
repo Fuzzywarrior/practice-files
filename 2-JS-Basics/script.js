@@ -299,3 +299,13 @@ console.log(john.fullName(), john.age);
 // ─── LECTURE LOOPS ──────────────────────────────────────────────────────────────
 //
 
+// for (i = 0; i <= 10; i++) {
+//    console.log(i);
+// }
+
+
+var names = ['John', 'Jane', 'Marry', 'Mark', 'Bob'];
+
+for (i = names.length -1 ; i >= 0; i--) {
+    console.log(names[i]);
+}
