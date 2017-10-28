@@ -223,7 +223,7 @@ if (john.indexOf('Teacher') === -1) {
 //
 // ─── LECTURE OBJECTS ────────────────────────────────────────────────────────────
 //
-
+/*
 var john = {
     name: 'John',
     lastName: 'Smith',
@@ -251,3 +251,40 @@ jane.yearOfBirth = 1969;
 jane.isMarried = true;
 
 console.log(jane);
+*/
+
+//
+// ─── LECTURE OBJECTS AND METHODS ────────────────────────────────────────────────
+//
+/*
+var john = {
+    name: 'John',
+    lastName: 'Smith',
+    yearOfBirth: 1990,
+    job: 'teacher',
+    isMarried: false,
+    family:['Jane', 'Mark', 'Bob'],
+    calculateAge: function () {
+        "Use Strict:";
+        return 2017 - this.yearOfBirth;
+    }
+};
+*/
+
+
+// 2.0
+var john = {
+    age = this.calculateAge();
+    name: 'John',
+    lastName: 'Smith',
+    yearOfBirth: 1990,
+    job: 'teacher',
+    isMarried: false,
+    family:['Jane', 'Mark', 'Bob'],
+    calculateAge: function () {
+        "Use Strict:";
+        this.age = 2016 - this.yearOfBirth;
+    }
+};
+
+console.log(john);
