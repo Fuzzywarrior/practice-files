@@ -1,29 +1,37 @@
-///////////////////////////////////////
-// Lecture: Hoisting
+//
+// ─── LECTURE HOISTING ───────────────────────────────────────────────────────────
+//
+// functions
+calculateAge(1990);
 
+function calculateAge (year) {
+  console.log(2016 - year);
+}
 
+var retirement = function (year) {
+  console.log(65 - (2016 - year));
+}
 
+// variables
+console.log(age);
+var age = 23;
 
+function foo() {
+  var age = 65;
+  console.log(age);
+}
 
+foo();
 
+console.log(age);
 
-
-
-
-
-
-
-
-
-
-
-///////////////////////////////////////
-// Lecture: Scoping
+//
+// ─── LECTURE SCOPING ────────────────────────────────────────────────────────────
+//
 
 
 // First scoping example
 
-/*
 var a = 'Hello!';
 first();
 
@@ -34,9 +42,15 @@ function first() {
     function second() {
         var c = 'Hey!';
         console.log(a + b + c);
+        third()
     }
 }
-*/
+
+function third() {
+  var d = 'John';
+  console.log(c); //not part of the scope of the first and second function, won't work
+}
+
 
 
 
@@ -64,8 +78,10 @@ function third() {
 
 
 
-///////////////////////////////////////
-// Lecture: The this keyword
+//
+// ─── LECTURE THE THIS KEYWORD ───────────────────────────────────────────────────
+//
+
 
 
 
