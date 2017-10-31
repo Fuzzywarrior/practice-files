@@ -377,15 +377,16 @@ function printFullAge(arrayOfYears) {
 
     for (i = 0; i < arrayOfYears.length; i++) {
         ages[i] = (2017 - yearOfBirth[i]);
+        emptyYears[i] = ages[i];
     }
 
-    for ( i = 0; i < ages[i]; i++) {
+    for ( i = 0; i < ages.length; i++) {
         if (ages[i] > 18) {
             ofAgeArray[i] = true;
             console.log('This person is of full age', ages[i]);
         } else {
-            console.log('This person is not of full age', ages[i]);
             ofAgeArray[i] = false;
+            console.log('This person is not of full age', ages[i]);
         }
     }
     return ofAgeArray;
