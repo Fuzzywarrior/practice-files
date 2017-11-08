@@ -77,6 +77,7 @@ function third() {
 
 
 
+<<<<<<< HEAD
 
 //
 // ─── LECTURE THE THIS KEYWORD ───────────────────────────────────────────────────
@@ -100,18 +101,49 @@ var obj = {
         return date + (65 - this.age(this.birthYear));
     }
 };
+=======
+///////////////////////////////////////
+// Lecture: The this keyword
+console.log(this);
+
+function calculateAge(year) {
+    console.log(2016 - year);
+    console.log(this)
+}
+>>>>>>> a81bc899581d5af68bda56a92b58a1deb23dbefd
 
 function currentYear() {
     "Use Strict";
     return (new Date()).getFullYear();
 }
 
+<<<<<<< HEAD
 console.log(obj.age(obj.birthYear));
 console.log(obj.retirement());
 */
+=======
+var john = {
+    name: 'John',
+    yearOfBirth: 1990,
+    calculateAge: function() {
+        console.log(this);
+        console.log(2017 - this.yearOfBirth);
+>>>>>>> a81bc899581d5af68bda56a92b58a1deb23dbefd
 
+        function innerFunction() {
+            console.log(this);
+        }
+        //innerFunction();
+    }
+}
 
+john.calculateAge();
 
+var mike = {
+    name: 'Mike',
+    yearOfBirth: 1984,
+};
 
-
+mike.calculateAge = john.calculateAge;
+mike.calculateAge();
 

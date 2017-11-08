@@ -311,6 +311,7 @@ var names = ['John', 'Jane', 'Marry', 'Mark', 'Bob'];
 //}
 
 // While Loops
+/*
 var i = 0;
 while (i < names.length) {
     console.log(names[i]);
@@ -331,7 +332,7 @@ for (i = 1; i < 6; i++){
     }
     console.log(i);
 }
-
+*/
 //
 // ─── CODING CHALLENGE 2 ─────────────────────────────────────────────────────────
 //
@@ -353,11 +354,12 @@ Hint: you can use a loop not only to read from an array, like y[i], but also to 
 
 
 var yearOfBirth = [1928, 1969, 1978, 1999, 2001, 1970, 1965];
+var yearOfBirth_2 = [1999, 1978, 1981, 1987, 2000, 2011, 1978];
 var emptyYears = [];
 
-for (i = 0; i < yearOfBirth.length; i++) {
-    emptyYears.push(yearOfBirth[i]);
-}
+//for (i = 0; i < yearOfBirth.length; i++) {
+//    emptyYears.push(2017 - yearOfBirth[i]);
+//}
 
 for (i = 0; i < yearOfBirth.length; i++) {
     if ((2017 - yearOfBirth[i]) > 18) {
@@ -366,4 +368,33 @@ for (i = 0; i < yearOfBirth.length; i++) {
         console.log('Is not of full age ', 2017 - yearOfBirth[i]);
     }
 }
+
+
+function printFullAge(arrayOfYears) {
+    "Use Strict";
+    var ages = [];
+    var ofAgeArray = [];
+
+    for (i = 0; i < arrayOfYears.length; i++) {
+        ages[i] = (2017 - yearOfBirth[i]);
+        emptyYears[i] = ages[i];
+    }
+
+    for ( i = 0; i < ages.length; i++) {
+        if (ages[i] > 18) {
+            ofAgeArray[i] = true;
+            console.log('This person is of full age', ages[i]);
+        } else {
+            ofAgeArray[i] = false;
+            console.log('This person is not of full age', ages[i]);
+        }
+    }
+    return ofAgeArray;
+}
+
+var full_1 = printFullAge(yearOfBirth);
+var full_2 = printFullAge(yearOfBirth_2);
+
+console.log(full_1);
+console.log(full_2);
 console.log(emptyYears);
