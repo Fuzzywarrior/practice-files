@@ -48,7 +48,7 @@ function first() {
 
 function third() {
   var d = 'John';
-  console.log(c); //not part of the scope of the first and second function, won't work
+  console.log(a + d); //not part of the scope of the first and second function, won't work
 }
 
 
@@ -56,7 +56,7 @@ function third() {
 
 // Example to show the difference between execution stack and scope chain
 
-/*
+
 var a = 'Hello!';
 first();
 
@@ -74,7 +74,7 @@ function third() {
     var d = 'John';
     console.log(a + b + c + d);
 }
-*/
+
 
 
 
@@ -82,9 +82,33 @@ function third() {
 // ─── LECTURE THE THIS KEYWORD ───────────────────────────────────────────────────
 //
 
+// Messing Around
 
+    /*
+var obj = {
+    firstName: 'Billy',
+    lastName: 'Hamel',
+    birthYear: 1989,
+    age: function (year) {
+        "Use Strict";
+        var date = currentYear();
+        return date - year;
+    },
+    retirement: function () {
+        "Use Strict";
+        var date = currentYear();
+        return date + (65 - this.age(this.birthYear));
+    }
+};
 
+function currentYear() {
+    "Use Strict";
+    return (new Date()).getFullYear();
+}
 
+console.log(obj.age(obj.birthYear));
+console.log(obj.retirement());
+*/
 
 
 
