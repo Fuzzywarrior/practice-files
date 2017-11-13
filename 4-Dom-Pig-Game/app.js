@@ -21,7 +21,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     "Use Strict:";
     if (gamePlaying) {
 
-        var dice = Math.floor(Math.random() * 6) + 1;
+        var dice1 = Math.floor(Math.random() * 6) + 1;
+        var dice2 = Math.floor(Math.random() * 6) + 1;
 
         //Display result
         var diceDOM = document.querySelector('.dice');
@@ -29,9 +30,9 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM.src = 'dice-' + dice + '.png';
 
         //Update the round score if the rolled number was not a 1.
-        if (dice !== 1 || diceRoll !== 1) {
+        if (dice1 !== 1 || dice2 !== 1) {
             //Add Score
-            roundScore += dice;
+            roundScore += dice1;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
             nextPlayer();
