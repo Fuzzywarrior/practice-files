@@ -12,47 +12,56 @@ GAME RULES:
 //
 // ─── GLOBAL VARIABLES ───────────────────────────────────────────────────────────
 //
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlaying, diceRoll;
 
 init();
 
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
     "Use Strict:";
-    var dice = Math.floor(Math.random() * 6) + 1;
+    if (gamePlaying) {
 
-    //Display result
-    var diceDOM = document.querySelector('.dice');
-    diceDOM.style.display = 'block';
-    diceDOM.src = 'dice-' + dice + '.png';
+        var dice = Math.floor(Math.random() * 6) + 1;
 
-    //Update the round score if the rolled number was not a 1.
-    if (dice !== 1) {
-        //Add Score
-        roundScore += dice;
-        document.querySelector('#current-' + activePlayer).textContent = roundScore;
-    } else {
-        nextPlayer();
-    }
+        //Display result
+        var diceDOM = document.querySelector('.dice');
+        diceDOM.style.display = 'block';
+        diceDOM.src = 'dice-' + dice + '.png';
+
+        //Update the round score if the rolled number was not a 1.
+        if (dice !== 1 || diceRoll !== 1) {
+            //Add Score
+            roundScore += dice;
+            document.querySelector('#current-' + activePlayer).textContent = roundScore;
+        } else {
+            nextPlayer();
+        }
+}
 });
 
 
 document.querySelector('.btn-hold').addEventListener('click', function () {
-    //Add current score to player score
-    scores[activePlayer] += roundScore;
+    "Use Strict:";
+    //check if a game is currently being played
+    if (gamePlaying) {
 
-    //Update the UI
-    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        //Add current score to player score
+        scores[activePlayer] += roundScore;
 
-    //Check if player won the game
-    if (scores[activePlayer] >= 100) {
-        document.getElementById('name-' + activePlayer).textContent = 'Winner!';
-        document.querySelector('.dice').style.display = 'none';
-        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-    } else {
-        nextPlayer();
-    }
+        //Update the UI
+        document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+        //Check if player won the game
+        if (scores[activePlayer] >= 100) {
+            document.getElementById('name-' + activePlayer).textContent = 'Winner!';
+            document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            gamePlaying = false;
+        } else {
+            nextPlayer();
+        }
+}
 });
 
 document.querySelector('.btn-new').addEventListener('click', init);
@@ -62,6 +71,7 @@ function init() {
     scores = [0, 0];
     activePlayer = 0;
     roundScore = 0;
+    gamePlaying = true;
 
     document.querySelector('.dice').style.display = 'none';
 
@@ -116,8 +126,20 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 });
 */
 
+/* 
+THE 3 CHALLENGES.
 
+1. A Player looses his entire score when he rolls two 6 in a row. Ather that, its the next player's
+turn. (Hint: Always save the previous dice roll in a seperate variable)
 
+2. Add an input field to the HTML where players can set the winning score,
+so that they change the predefined score of 100. (Hint: you can read that value with the .value preperty in JavaScript.
+This is a good oppurtunity to use google to figure this out.)
+
+3. Add another dice to the game, so that there are two dices now. The player losses his current score
+when one of them is a 1 (Hint: you will need CSS to postion the second dice, so take a look at CSS code
+for the first one.)
+*/
 
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
