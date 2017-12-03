@@ -29,7 +29,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM.src = 'dice-' + dice + '.png';
 
         //Update the round score if the rolled number was not a 1.
-        if (dice !== 1 || diceRoll !== 1) {
+        if (dice !== 1) {
             //Add Score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -129,12 +129,12 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 /* 
 THE 3 CHALLENGES.
 
-1. A Player looses his entire score when he rolls two 6 in a row. Ather that, its the next player's
-turn. (Hint: Always save the previous dice roll in a seperate variable)
+1. A Player looses his entire score when he rolls two 6 in a row. After that, its the next player's
+turn. (Hint: Always save the previous dice roll in a separate variable)
 
 2. Add an input field to the HTML where players can set the winning score,
-so that they change the predefined score of 100. (Hint: you can read that value with the .value preperty in JavaScript.
-This is a good oppurtunity to use google to figure this out.)
+so that they change the predefined score of 100. (Hint: you can read that value with the .value property in JavaScript.
+This is a good opportunity to use google to figure this out.)
 
 3. Add another dice to the game, so that there are two dices now. The player losses his current score
 when one of them is a 1 (Hint: you will need CSS to postion the second dice, so take a look at CSS code
