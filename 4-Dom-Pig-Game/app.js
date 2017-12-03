@@ -29,10 +29,11 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM.src = 'dice-' + dice + '.png';
 
         //Update the round score if the rolled number was not a 1.
-        if (dice !== 1) {
+        if (dice !== 1 || dice !== 6 & diceRoll !== 6 ) {
             //Add Score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+            diceRoll = dice;
         } else {
             nextPlayer();
         }
