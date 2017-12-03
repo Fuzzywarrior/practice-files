@@ -33,6 +33,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM2.src = 'dice-' + dice2 + '.png';
 
         if (dice === 6 && lastRoll === 6) {
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
             nextPlayer();
         } else if (dice !== 1 && dice2 !== 1) {
             //Add Score
