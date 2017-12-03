@@ -12,7 +12,7 @@ GAME RULES:
 //
 // ─── GLOBAL VARIABLES ───────────────────────────────────────────────────────────
 //
-var scores, roundScore, activePlayer, gamePlaying, diceRoll, winningScore;
+var scores, roundScore, activePlayer, gamePlaying, lastRoll, winningScore;
 
 init();
 
@@ -34,10 +34,10 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
         //Update the round score if the rolled number was not a 1.
         if (dice !== 1 && dice2 !== 1) {
-            if ( dice2 !== 6 && dice !== 6 && diceRoll !== 6 ) {
+            if ( dice2 !== 6 && dice !== 6 && lastRoll !== 6 ) {
             //Add Score
             roundScore += dice + dice2;
-            diceRoll = dice
+            lastRoll = dice
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
             } else {
                 nextPlayer();
@@ -106,7 +106,7 @@ function nextPlayer() {
 
     roundScore = 0;
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    diceRoll = 0;
+    lastRoll = 0;
 
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active');
