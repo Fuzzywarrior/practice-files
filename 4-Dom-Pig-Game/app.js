@@ -12,7 +12,6 @@ GAME RULES:
 //
 // ─── GLOBAL VARIABLES ───────────────────────────────────────────────────────────
 //
-var scores, roundScore, activePlayer, gamePlaying, diceRoll;
 var scores, roundScore, activePlayer, gamePlaying, lastRoll, winningScore;
 
 init();
@@ -42,15 +41,11 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         if (dice1 !== 1 || dice2 !== 1) {
             //Add Score
             roundScore += dice1;
-            document.querySelector('#current-' + activePlayer).textContent = roundScore;
-        } else {
 =======
         if (dice === 6 && lastRoll === 6) {
             scores[activePlayer] = 0;
             document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
             nextPlayer();
-        }
-}
         } else if (dice !== 1 && dice2 !== 1) {
             //Add Score
             roundScore += dice + dice2;
@@ -76,7 +71,6 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
         //Check if player won the game
-        if (scores[activePlayer] >= 100) {
         if (scores[activePlayer] >= winningScore) {
             document.getElementById('name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
@@ -158,14 +152,10 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 /* 
 THE 3 CHALLENGES.
 
-1. A Player looses his entire score when he rolls two 6 in a row. Ather that, its the next player's
-turn. (Hint: Always save the previous dice roll in a seperate variable)
 1. A Player looses his entire score when he rolls two 6 in a row. After that, its the next player's
 turn. (Hint: Always save the previous dice roll in a separate variable)
 
 2. Add an input field to the HTML where players can set the winning score,
-so that they change the predefined score of 100. (Hint: you can read that value with the .value preperty in JavaScript.
-This is a good oppurtunity to use google to figure this out.)
 so that they change the predefined score of 100. (Hint: you can read that value with the .value property in JavaScript.
 This is a good opportunity to use google to figure this out.)
 
