@@ -13,6 +13,7 @@ GAME RULES:
 // ─── GLOBAL VARIABLES ───────────────────────────────────────────────────────────
 //
 var scores, roundScore, activePlayer, gamePlaying, diceRoll;
+var scores, roundScore, activePlayer, gamePlaying, lastRoll, winningScore;
 
 init();
 
@@ -21,23 +22,45 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     "Use Strict:";
     if (gamePlaying) {
 
+<<<<<<< HEAD
         var dice1 = Math.floor(Math.random() * 6) + 1;
+=======
+        var dice = Math.floor(Math.random() * 6) + 1;
+>>>>>>> fa30103ba04948594807b41d549cc4c6c6d5f627
         var dice2 = Math.floor(Math.random() * 6) + 1;
 
         //Display result
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
+        var diceDOM2 = document.querySelector('.dice2');
+        diceDOM2.style.display = 'block';
+        diceDOM2.src = 'dice-' + dice2 + '.png';
 
+<<<<<<< HEAD
         //Update the round score if the rolled number was not a 1.
         if (dice1 !== 1 || dice2 !== 1) {
             //Add Score
             roundScore += dice1;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
+=======
+        if (dice === 6 && lastRoll === 6) {
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
             nextPlayer();
         }
 }
+        } else if (dice !== 1 && dice2 !== 1) {
+            //Add Score
+            roundScore += dice + dice2;
+            lastRoll = dice
+>>>>>>> fa30103ba04948594807b41d549cc4c6c6d5f627
+            document.querySelector('#current-' + activePlayer).textContent = roundScore;
+            } else {
+                nextPlayer();
+            }
+    }
 });
 
 
@@ -54,6 +77,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 
         //Check if player won the game
         if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= winningScore) {
             document.getElementById('name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -73,8 +97,10 @@ function init() {
     activePlayer = 0;
     roundScore = 0;
     gamePlaying = true;
+    winningScore = document.getElementById("winning-score").value;
 
     document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
 
     document.getElementById('score-0').textContent = '0';
     document.getElementById('score-1').textContent = '0';
@@ -95,11 +121,13 @@ function nextPlayer() {
 
     roundScore = 0;
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    lastRoll = 0;
 
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active');
 
     document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
     //document.querySelector('.player-' + activePlayer + '-panel').classList.add('active');
 }
 
@@ -132,10 +160,14 @@ THE 3 CHALLENGES.
 
 1. A Player looses his entire score when he rolls two 6 in a row. Ather that, its the next player's
 turn. (Hint: Always save the previous dice roll in a seperate variable)
+1. A Player looses his entire score when he rolls two 6 in a row. After that, its the next player's
+turn. (Hint: Always save the previous dice roll in a separate variable)
 
 2. Add an input field to the HTML where players can set the winning score,
 so that they change the predefined score of 100. (Hint: you can read that value with the .value preperty in JavaScript.
 This is a good oppurtunity to use google to figure this out.)
+so that they change the predefined score of 100. (Hint: you can read that value with the .value property in JavaScript.
+This is a good opportunity to use google to figure this out.)
 
 3. Add another dice to the game, so that there are two dices now. The player losses his current score
 when one of them is a 1 (Hint: you will need CSS to postion the second dice, so take a look at CSS code
